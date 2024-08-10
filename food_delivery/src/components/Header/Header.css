@@ -1,8 +1,8 @@
 .header{
     height:34vw;
-    width:100%;
+    
     margin:30px auto;
-    background: url('/header-img.jpg') no-repeat;
+    background-image: url('/header-image.jpg') no-repeat;
     background-size: contain;
     position: relative;
     
