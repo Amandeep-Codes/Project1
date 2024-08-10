@@ -1,0 +1,13 @@
+.explore-menu{
+    display:flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.explore-menu h1{
+    font-weight: 500;
+    
+}
+explore-menu-text{
+    color:white;
+}

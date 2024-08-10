@@ -19,6 +19,7 @@
     max-width:50%;
     bottom:10%;
     left:6vw;
+    animation: fadeIN 3s;
 }
 .header-content h2{
     font-weight:500;
@@ -41,11 +42,25 @@
     font-size: 13px;
     border-radius: 50px;
 }
-@keyframes fadeIn {
-    0%{
-        opacity:0;
+
+
+
+@media (max-width:1050px) {
+    .header{
+        height: 38vw;
     }
-    100%{
-        opacity: 1;
+    .header-contents{
+        max-width: 45%;
+    }
+}
+@media(max-width:750px){
+    .header-contents{
+        max-width: 55%;
+    }
+    .header-contents p{
+       display: none;
+    }
+    .header-contents button{
+        padding: 2vw 4vw;
     }
 }
