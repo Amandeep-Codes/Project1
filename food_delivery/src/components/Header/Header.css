@@ -1,10 +1,12 @@
 .header{
     height:34vw;
     
-    margin:30px auto;
-    background-image: url('/header-image.jpg') no-repeat;
-    background-size: contain;
+    
+    margin:40px auto;
+    background:url('/header-image.jpg') no-repeat;
+    
     position: relative;
+    background-size: cover;
     
 }
 
@@ -22,4 +24,28 @@
     font-weight:500;
     color:white;
     font-size:max(4.5vw,22px)
+}
+
+.header-content p{
+    color:white;
+    font-size: 1vw;
+
+}
+
+.header-content button{
+    border: none;
+    color: rgb(91, 89, 89);
+    font-weight: 500;
+    padding: 1vw 2.3vw;
+    background-color: white;
+    font-size: 13px;
+    border-radius: 50px;
+}
+@keyframes fadeIn {
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
