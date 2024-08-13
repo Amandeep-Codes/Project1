@@ -14,7 +14,7 @@ const FoodItem = ({id,name,description,image,price}) => {
             {
                 !cartItems[id]// 
                 ? <img className='add' onClick={()=> addToCart(id)} src={assets.add_icon_white} alt='icon' />
-                // changed setItemCount(prev=>prev+1) to
+                // changed from  setItemCount(prev=>prev+1) 
                 : <div className="food-item-counter"> 
                     <img  onClick={()=>removeFromCart(id)} src={assets.remove_icon_red} alt='remove-icon'/>
                     <p>{cartItems[id]}</p>
