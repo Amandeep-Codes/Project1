@@ -5,6 +5,7 @@ import React from "react";
 export const StoreContext=createContext(null)
 const StoreContextProvider =(props) =>{
     const[cartItems,setCartItems] = useState({})
+    const [ordersData,setOrdersData] = useState({});
 
     const addToCart = (itemId) => {
         if(!cartItems[itemId]){
@@ -22,6 +23,26 @@ const StoreContextProvider =(props) =>{
     const removeFromCart =(itemId)=>{
         setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
     }
+
+    const getTotalCartAmount = () => {
+        let totalAmount = 0;
+        for (const item in cartItems) {
+          if (cartItems[item] > 0) {
+            let itemInfo = food_list.find((product) => product._id === item );
+            totalAmount += itemInfo.price * cartItems[item];
+            console.log(totalAmount)
+          }
+        }
+        return totalAmount;
+        
+      }
+      const placeOrder = (deliveryData) =>{
+
+        console.log(deliveryData);
+    }
+
+    
+      
     useEffect(()=>{
         console.log(cartItems)
     },[cartItems])
@@ -31,7 +52,9 @@ const StoreContextProvider =(props) =>{
         cartItems,
         setCartItems,
         addToCart,
-        removeFromCart
+        removeFromCart,
+        getTotalCartAmount
+        
 
     }
     return(

@@ -7,7 +7,7 @@ import Placeorder from "./pages/Placeorder/Placeorder";
 import Footer from "./components/Footer/Footer";
 import AppDownload from "./components/AppDownload/AppDownload";
 import Login from "./components/Login/Login";
-
+import MyOrders from "./pages/Order/MyOrder";
 function App() {
 
   const[showLogin,setShowLogin]=useState(false)
@@ -20,6 +20,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/order" element={<Placeorder />} />
+          <Route path='/myorder' element={<MyOrders/>}/>
         </Routes>
         <AppDownload />
         <Footer />
