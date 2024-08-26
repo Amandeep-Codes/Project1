@@ -5,6 +5,7 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -12,7 +13,7 @@ const NavBar = () => {
       
         <Navbar expand="lg" className="bg-body-tertiary">
           <Container fluid  className="bg-light bg-gradient">
-            <Navbar.Brand  className="text-primary" href="#">Employee Management System</Navbar.Brand>
+            <Navbar.Brand  className="text-primary" >Employee Management System</Navbar.Brand>
             <Navbar.Toggle aria-controls="navbarScroll" />
             <Navbar.Collapse id="navbarScroll">
               <Nav
@@ -20,8 +21,8 @@ const NavBar = () => {
                 style={{ maxHeight: "100px" }}
                 navbarScroll
               >
-                <Nav.Link href="#action1">Add Employee</Nav.Link>
-                <Nav.Link href="#action2">All Employees</Nav.Link>
+                <Nav.Link  to="/addemp" as={Link}>Add Employee</Nav.Link>
+                <Nav.Link >All Employees</Nav.Link>
 
 
               </Nav>
