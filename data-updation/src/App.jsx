@@ -1,33 +1,27 @@
-import AddEmployee from './components/addEmployee';
-import NavBar from './components/Navbar'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter as  Router,Routes,Route} from "react-router-dom"
+import { Provider } from "react-redux";
+import AddEmployee from "./components/addEmployee";
+import AllEmp from "./components/AllEmp";
+import NavBar from "./components/Navbar";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import store from "./store/Store";
 
 function App() {
-  
-
   return (
     <>
-    
-    <div className='App'>
-    <Router>
-    
-    
-    
-    <Routes>
-      <Route  path='/' element={<NavBar/>} />
-      <Route path ="/addemp" exact  element = {<AddEmployee/>}  />
-
-      
-      </Routes> 
-      </Router>
- 
-    </div>
-    
-
-
+      <Provider store={store}>
+        <div className="App">
+          <Router>
+            <NavBar />
+            <Routes>
+              <Route path="/" element={<AllEmp />} />
+              <Route path="/addemp" element={<AddEmployee />} />
+            </Routes>
+          </Router>
+        </div>
+      </Provider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

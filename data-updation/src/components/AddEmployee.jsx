@@ -19,22 +19,22 @@ const AddEmployee = () => {
 
         <Form.Group className="mb-3" >
           <Form.Label  >Name</Form.Label>
-          <Form.Control className="form-control w-70" type="text" value={empname}  />
+          <Form.Control className="form-control w-70" type="text"   />
         </Form.Group>
 
         <Form.Group className="mb-3" >
           <Form.Label  >Age</Form.Label>
-          <Form.Control className="form-control w-70" type="number"  value={age}/>
+          <Form.Control className="form-control w-70" type="number"  value={'age'}/>
         </Form.Group>
 
         <div className="d-flex justify-content-center align-items-center  gap-5">
                     
         <Form.Group className="mb-3" >
-          <Form.Check type="radio"  name="gender"  value={male}  label="male" />
+          <Form.Check type="radio"  name="gender"  value={'male'}  label="male" />
         </Form.Group>
 
         <Form.Group className="mb-3" >
-          <Form.Check type="radio" name="gender"  value={female} label="female" />
+          <Form.Check type="radio" name="gender"  value={'female'} label="female" />
         </Form.Group>
 
         </div>
