@@ -4,7 +4,7 @@ import { createSlice,createAsyncThunk} from "@reduxjs/toolkit";
 
 const initialState = {
     users:[],
-    laoding:false,
+    loading:false,
     error:null
 }
 
@@ -14,15 +14,33 @@ export const getEmployeeDetails = createAsyncThunk("empDetails",async()=>{
     return data
 })
 
+
+
+
 export const empSlice= createSlice({
-    name:"datails",
+    name:"empdetails",
     initialState,
     reducers:{
+        deleteEmpDetails:(state,action)=>{
+            state.users = state.users.filter((user) => user.id !== action.payload)
+            
+        },
      
     },
     extraReducers:(builder)=>{
+        builder.addCase(getEmployeeDetails.pending,(state,action)=>{
+            state.loading=true;
+            state.error=null;
+        })
         builder.addCase(getEmployeeDetails.fulfilled,(state,action)=>{
             state.users=action.payload;
+            state.loading=false;
+        })
+
+        builder.addCase(getEmployeeDetails.rejected,(state,action)=>{
+            state.loading=false
+            state.error=action.error
+
         })
 
     }
@@ -32,4 +50,6 @@ export const empSlice= createSlice({
 
 
 
+
 export default empSlice.reducer
+ export const  {deleteEmpDetails} =empSlice.actions;

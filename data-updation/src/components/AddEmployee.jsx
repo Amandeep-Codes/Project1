@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 const AddEmployee = () => {
+
+  const [empdata,setEmpData] = useState()
+  setEmpData({...useResolvedPath,[e.target.name]:[e.target.value]})
   return (
     <>
      <h2 style={{color:"blue",fontWeight:"500",textAlign:"center",margin:"20px auto"}}> Add  Employee Details</h2>
@@ -11,7 +14,7 @@ const AddEmployee = () => {
       <Form >
         <Form.Group className="mb-3" >
           <Form.Label  classname="fs-1">Email </Form.Label>
-          <Form.Control  className="form-control w-70" type="email" />
+          <Form.Control  className="form-control w-70" type="email" name="email" />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
           </Form.Text>
@@ -19,12 +22,12 @@ const AddEmployee = () => {
 
         <Form.Group className="mb-3" >
           <Form.Label  >Name</Form.Label>
-          <Form.Control className="form-control w-70" type="text"   />
+          <Form.Control className="form-control w-70" type="text" name="empname"  />
         </Form.Group>
 
         <Form.Group className="mb-3" >
           <Form.Label  >Age</Form.Label>
-          <Form.Control className="form-control w-70" type="number"  value={'age'}/>
+          <Form.Control className="form-control w-70" type="number" name="age" value={'age'}/>
         </Form.Group>
 
         <div className="d-flex justify-content-center align-items-center  gap-5">
