@@ -10,15 +10,20 @@ function App() {
   return (
     <>
       <Provider store={store}>
-        <div className="App">
+        
+       
           <Router>
-            <NavBar />
+          <NavBar />
+            
             <Routes>
+            
               <Route path="/" element={<AllEmp />} />
               <Route path="/addemp" element={<AddEmployee />} />
+              <Route path="/emp-record" element={<AllEmp/>} />
+              
             </Routes>
           </Router>
-        </div>
+        
       </Provider>
     </>
   );
