@@ -17,6 +17,8 @@ export const getEmployeeDetails = createAsyncThunk("empDetails",async()=>{
 
 
 
+
+
 export const empSlice= createSlice({
     name:"empdetails",
     initialState,
