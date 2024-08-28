@@ -30,7 +30,7 @@ const AllEmp = () => {
     <>
       {loading && <p style={{fontSize:"50px",textAlign:"center"}} >Loading....</p>}
 
-      {error  &&  <p> ERROR:{error}</p>}
+      {error  &&  <p variant='danger'> ERROR:{error}</p>}
 
       {!loading && !error &&(
         <div style={{margin:"40px auto"}}>
@@ -53,7 +53,8 @@ const AllEmp = () => {
                     <td>{user.id}</td>
                     <td>{user.gender}</td>
                     <td>{user.age}</td>
-                    <td>  {"  "} <Button  size="sm" className="ms-3 " variant="primary"> Update</Button>  <Button  size="sm" onClick={()=>deleteData(user.id)}  className="ms-3" variant="danger">Delete</Button></td>
+                    <td><Button  size="sm" className="ms-3 " variant="primary"> Update</Button> 
+                     <Button  size="sm" onClick={()=>deleteData(user.id)}  className="ms-3" variant="danger">Delete</Button></td>
                   </tr>
                 ))}
               </tbody>

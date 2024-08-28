@@ -22,7 +22,9 @@ const AddEmployee = () => {
   const handleSubmit=(e)=>{
     e.preventDefault()
     dispatch(addEmployeeData(empdata))
-    {<AllEmp/>}
+    
+
+
 
   }
   return (
