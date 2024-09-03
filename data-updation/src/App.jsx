@@ -5,6 +5,7 @@ import NavBar from "./components/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import store from "./store/Store";
+import UpdateEmpData from "./components/UpdateEmpData";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route path="/" element={<AllEmp />} />
               <Route path="/addemp" element={<AddEmployee />} />
               <Route path="/emp-record" element={<AllEmp/>} />
+              <Route path="/update-record" element={<UpdateEmpData/>}/>
               
             </Routes>
           </Router>

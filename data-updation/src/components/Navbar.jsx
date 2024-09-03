@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { searchEmpDetails } from "../store/EmpSlice";
+
 
 const NavBar = () => {
+  const [searchvalue,getSearchValue] = useState("")
+  const dispatch=useDispatch()
+
+  useEffect(()=>{
+    if(searchvalue.trim()!== ""){
+      dispatch(searchEmpDetails(searchvalue.trim()))
+    }
+    
+  },[searchvalue,dispatch])
+
+   const handleSearch=()=>{
+     if (searchvalue.trim() !== "") {
+      dispatch(searchEmpDetails(searchvalue.trim()));
+   }
+  }
   return (
     <>
       
@@ -26,14 +44,17 @@ const NavBar = () => {
 
 
               </Nav>
-              <Form className="d-flex">
+              <Form className="d-flex form-control w-75">
                 <Form.Control
                   type="search"
-                  placeholder="Search"
-                  className="me-2"
-                  aria-label="Search"
+                  placeholder=" Type Employee name or Id"
+                 className="me-1"
+                 aria-label="Search"
+                  value={searchvalue}
+                  onChange={(e)=>getSearchValue(e.target.value)}
+                  
                 />
-                <Button variant="primary">Search</Button>
+                {/* <Button variant="primary" onClick={handleSearch}>Search</Button> */}
               </Form>
             </Navbar.Collapse>
           </Container>
