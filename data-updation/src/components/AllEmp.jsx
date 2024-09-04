@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { getEmployeeDetails, deleteEmpDetails } from "../store/EmpSlice";
 import { updateEmpData } from "../store/UpdateSlice";
 import UpdateEmpData from "./UpdateEmpData";
@@ -21,7 +21,7 @@ console.log("searchData",searchData)
     updateddetails:updatedDetails=[],
   }= useSelector(state=>state.updatedData)
 
- // const
+ const navigate = useNavigate()
 
 
 
@@ -63,7 +63,10 @@ console.log("searchData",searchData)
      );
      
     })
-    console.log("Filtered Details:", filteredDetails);
+   // console.log("Filtered Details:", filteredDetails);
+
+   
+    
     
     
   return (
@@ -71,11 +74,14 @@ console.log("searchData",searchData)
       {loading && <p style={{ fontSize: "50px", textAlign: "center" }}>Loading....</p>}
 
       {error && <p variant='danger'>ERROR: {error}</p>}
+      <h3 className="text-center text-primary mt-3" > Employee Details</h3>
 
       {!loading && !error && (
         <div style={{ margin: "40px auto" }}>
           <div>
-            {filteredDetails.length ===0? (<p style={{textAlign:"center",fontSize:"20px",color:"red"}}> No result found</p>
+            {filteredDetails.length ===0? (<><p style={{textAlign:"center",fontSize:"20px",color:"red"}}> No result found  </p>
+            
+            </>
               
             )
             :(

@@ -18,6 +18,9 @@ const NavBar = () => {
     if(searchvalue.trim()!== ""){
       dispatch(searchEmpDetails(searchvalue.trim()))
     }
+    else{
+      dispatch(searchEmpDetails(" "))
+    }
     
   },[searchvalue,dispatch])
 

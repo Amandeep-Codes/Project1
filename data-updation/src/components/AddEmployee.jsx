@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addEmployeeData } from "../store/AddSlice";
 import AllEmp from "./AllEmp";
 import { useNavigate } from "react-router-dom";
+
 
 const AddEmployee = () => {
   const [empdata, setEmpData] = useState({
@@ -13,6 +14,7 @@ const AddEmployee = () => {
     age: " ",
     gender: " ",
   });
+  const {error="null"} =useSelector(state=>state.addData)
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -36,6 +38,7 @@ const AddEmployee = () => {
   };
   return (
     <>
+    {error && <p variant='danger'>ERROR: {error}</p>}
       <h2
         style={{
           color: "blue",
