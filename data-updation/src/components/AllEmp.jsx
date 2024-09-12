@@ -65,6 +65,10 @@ console.log("searchData",searchData)
     })
    // console.log("Filtered Details:", filteredDetails);
 
+   const handleButton=()=>{
+    navigate("/addemp")
+   }
+
    
     
     
@@ -74,7 +78,8 @@ console.log("searchData",searchData)
       {loading && <p style={{ fontSize: "50px", textAlign: "center" }}>Loading....</p>}
 
       {error && <p variant='danger'>ERROR: {error}</p>}
-      <h3 className="text-center text-primary mt-3" > Employee Details</h3>
+      <h3 className="text-center text-dark mt-3" > Employee Details</h3>
+      <Button variant="primary" className="ms-3" onClick={handleButton}>+ Add Employee </Button>
 
       {!loading && !error && (
         <div style={{ margin: "40px auto" }}>
