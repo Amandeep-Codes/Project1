@@ -42,7 +42,7 @@ const NavBar = () => {
                 style={{ maxHeight: "100px" }}
                 navbarScroll
               >
-                <Nav.Link  to="/addemp" as={Link}>Add Employee</Nav.Link>
+                {/* <Nav.Link  to="/addemp" as={Link}>Add Employee</Nav.Link> */}
                 <Nav.Link  to ="/emp-record" as={Link}>All Employees</Nav.Link>
 
 

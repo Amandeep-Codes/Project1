@@ -12,7 +12,7 @@ const Income = () => {
   return (
     <div className='inc-exp-container'>
         <div>
-        <h4> income</h4>
+        <h4> Income</h4>
         <p id='money-plus' className='money plus'> +{income}</p>
         </div>
 
