@@ -3,7 +3,7 @@
     
     
     margin:40px auto;
-    background:url('/header-image.jpg') no-repeat;
+    background:url('/public/header-image.jpg') no-repeat;
     
     position: relative;
     background-size: cover;
