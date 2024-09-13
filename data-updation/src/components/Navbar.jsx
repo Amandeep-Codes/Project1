@@ -6,13 +6,14 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { searchEmpDetails } from "../store/EmpSlice";
 
 
 const NavBar = () => {
   const [searchvalue,getSearchValue] = useState("")
   const dispatch=useDispatch()
+  const navigate=useNavigate()
 
   useEffect(()=>{
     if(searchvalue.trim()!== ""){
@@ -28,6 +29,14 @@ const NavBar = () => {
      if (searchvalue.trim() !== "") {
       dispatch(searchEmpDetails(searchvalue.trim()));
    }
+  }
+
+  const handleLogout=()=>{
+    //window.localStorage.setItem("isLogIn",'false')
+    window.localStorage.removeItem("isLogIn")
+    
+    navigate("/", { replace: true }); // Redirect to the login page and clear the history stack
+
   }
   return (
     <>
@@ -47,11 +56,11 @@ const NavBar = () => {
 
 
               </Nav>
-              <Form className="d-flex form-control w-75">
+              <Form className="d-flex mx-5 form-control w-50">
                 <Form.Control
                   type="search"
                   placeholder=" Type Employee name or Id"
-                 className="me-1"
+                 className="mx-2"
                  aria-label="Search"
                   value={searchvalue}
                   onChange={(e)=>getSearchValue(e.target.value)}
@@ -59,6 +68,7 @@ const NavBar = () => {
                 />
                 {/* <Button variant="primary" onClick={handleSearch}>Search</Button> */}
               </Form>
+              <Button variant="dark"onClick={handleLogout} >Logout </Button>
             </Navbar.Collapse>
           </Container>
         </Navbar>

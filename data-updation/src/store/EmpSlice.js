@@ -41,7 +41,7 @@ export const empSlice= createSlice({
     reducers:{
         searchEmpDetails:(state,action)=>{
            state.searchData = action.payload
-           //comsole.log(`state is+${state.searchData}`)
+           //console.log(`state is+${state.searchData}`)
             
     },
      

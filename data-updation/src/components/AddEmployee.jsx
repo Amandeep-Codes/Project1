@@ -34,14 +34,14 @@ const AddEmployee = () => {
   };
 
   const handleCancel = () => {
-    navigate("/");
+    navigate("/emp-record");
   };
   return (
     <>
     {error && <p variant='danger'>ERROR: {error}</p>}
       <h2
         style={{
-          color: "blue",
+          color: "black",
           fontWeight: "500",
           textAlign: "center",
           margin: "20px auto",
@@ -50,13 +50,14 @@ const AddEmployee = () => {
         {" "}
         Add Employee Details
       </h2>
+      
       <div
-        className=" container w-25  border border-1 border-dark rounded conatiner h-75  mt-5 h-74"
+        className=" container w-25  border border-1 border-dark rounded conatiner h-75  mt-5 h-74 p-3"
         id="add"
       >
         <Form>
           <Form.Group className="mb-3">
-            <Form.Label className="fs-1">Email </Form.Label>
+            <Form.Label >Email </Form.Label>
             <Form.Control
               className="form-control w-70"
               type="email"
