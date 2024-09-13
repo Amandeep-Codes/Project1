@@ -27,7 +27,7 @@ const Footer = () => {
             <div className="footer-content-right">
                 <h2> GET IN TOUCH</h2>
                 <ul>
-                    <li> 8699735176</li>
+                    <li> 0099735176</li>
                     <li>reach@nostimo.com</li>
                 </ul>
             </div>
