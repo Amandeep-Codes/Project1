@@ -31,13 +31,13 @@ const NavBar = () => {
    }
   }
 
-  const handleLogout=()=>{
-    //window.localStorage.setItem("isLogIn",'false')
-    window.localStorage.removeItem("isLogIn")
+  // // const handleLogout=()=>{
+  //   //window.localStorage.setItem("isLogIn",'false')
+  //   window.localStorage.removeItem("isLogIn")
     
-    navigate("/", { replace: true }); // Redirect to the login page and clear the history stack
+  //   navigate("/", { replace: true }); // Redirect to the login page and clear the history stack
 
-  }
+  // }
   return (
     <>
       
@@ -68,7 +68,7 @@ const NavBar = () => {
                 />
                 {/* <Button variant="primary" onClick={handleSearch}>Search</Button> */}
               </Form>
-              <Button variant="dark"onClick={handleLogout} >Logout </Button>
+              {/* <Button variant="dark"onClick={handleLogout} >Logout </Button> */}
             </Navbar.Collapse>
           </Container>
         </Navbar>

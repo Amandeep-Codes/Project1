@@ -99,9 +99,9 @@ console.log("searchData",searchData)
               <Table striped bordered hover>
               <thead>
                 <tr>
-                  <th>Email</th>
-                  <th>Name</th>
                   <th>Employee ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
                   <th>Gender</th>
                   <th>Age</th>
                   <th>Actions</th>
@@ -119,9 +119,9 @@ console.log("searchData",searchData)
                       />
                     ) : (
                       <>
-                        <td>{user.email}</td>
-                        <td>{user.empname}</td>
                         <td>{user.id}</td>
+                        <td>{user.empname}</td>
+                        <td>{user.email}</td>
                         <td>{user.gender}</td>
                         <td>{user.age}</td>
                         <td>
