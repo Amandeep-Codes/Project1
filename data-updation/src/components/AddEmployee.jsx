@@ -3,18 +3,21 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useDispatch, useSelector } from "react-redux";
 import { addEmployeeData } from "../store/AddSlice";
-import AllEmp from "./AllEmp";
 import { useNavigate } from "react-router-dom";
-
+import Container from "react-bootstrap/Container";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const AddEmployee = () => {
   const [empdata, setEmpData] = useState({
-    email: " ",
-    empname: " ",
-    age: " ",
-    gender: " ",
+    email: "",
+    empname: "",
+    age: "",
+    gender: "",
   });
-  const {error="null"} =useSelector(state=>state.addData)
+
+  const { error } = useSelector((state) => state.addData);
+  const [validationError, setValidationError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -24,46 +27,61 @@ const AddEmployee = () => {
       ...prevState,
       [name]: type === "checkbox" ? checked : value,
     }));
-    console.log(empdata);
+  };
+
+
+  const handleValidation = () => {
+    if (!empdata.email || !empdata.empname || !empdata.age || !empdata.gender) {
+      setValidationError("All fields are required.");
+      return false;
+    }
+    if (!/\S+@\S+\.\S+/.test(empdata.email)) {
+      setValidationError("Please enter a valid email.");
+      return false;
+    }
+    if (isNaN(empdata.age) || empdata.age <= 0) {
+      setValidationError("Please enter a valid age.");
+      return false;
+    }
+    setValidationError(""); // Clear validation error if all checks pass
+    return true;
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addEmployeeData(empdata));
-    navigate("/emp-record");
+    if (handleValidation()) {
+      dispatch(addEmployeeData(empdata));
+      navigate("/emp-record");
+    }
+  
   };
 
   const handleCancel = () => {
     navigate("/emp-record");
   };
+
   return (
     <>
-    {error && <p variant='danger'>ERROR: {error}</p>}
-      <h2
-        style={{
-          color: "black",
-          fontWeight: "500",
-          textAlign: "center",
-          margin: "20px auto",
-        }}
-      >
-        {" "}
+      {error && <p className="text-danger text-center">ERROR: {error}</p>}
+
+      <h2 className="text-center my-4" style={{ color: "black", fontWeight: "500" }}>
         Add Employee Details
       </h2>
-      
-      <div
-        className=" container w-25  border border-1 border-dark rounded conatiner h-75  mt-5 h-74 p-3"
-        id="add"
+
+      <Container
+        fluid
+        className="container-sm  p-4 shadow-lg p-3 mb-5 bg-white rounded"
+        style={{ maxWidth: '500px' }}
       >
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
-            <Form.Label >Email </Form.Label>
+            <Form.Label>Email</Form.Label>
             <Form.Control
-              className="form-control w-70"
               type="email"
               name="email"
               value={empdata.email}
               onChange={getEmpData}
+              required
             />
             <Form.Text className="text-muted">
               We'll never share your email with anyone else.
@@ -73,69 +91,73 @@ const AddEmployee = () => {
           <Form.Group className="mb-3">
             <Form.Label>Name</Form.Label>
             <Form.Control
-              className="form-control w-70"
               type="text"
               name="empname"
               value={empdata.empname}
               onChange={getEmpData}
+              required
             />
           </Form.Group>
 
           <Form.Group className="mb-3">
             <Form.Label>Age</Form.Label>
             <Form.Control
-              className="form-control w-70"
-              type="text"
+              type="number"
               name="age"
               value={empdata.age}
               onChange={getEmpData}
+              required
             />
           </Form.Group>
 
-          <div className="d-flex justify-content-center align-items-center  gap-5">
-            <Form.Group className="mb-3">
+          <Row className="justify-content-center mb-3">
+            <Col xs={6}>
               <Form.Check
                 type="radio"
                 name="gender"
-                value={"male"}
-                checked={empdata.gender==="male"}
-                label="male"
+                value="male"
+                label="Male"
+                checked={empdata.gender === "male"}
                 onChange={getEmpData}
+                required
               />
-            </Form.Group>
-
-            <Form.Group className="mb-3">
+            </Col>
+            <Col xs={6}>
               <Form.Check
                 type="radio"
                 name="gender"
-                value={"female"}
-                label="female"
-                checked={empdata.gender==="female"}
+                value="female"
+                label="Female"
+                checked={empdata.gender === "female"}
                 onChange={getEmpData}
+                required
               />
-            </Form.Group>
-          </div>
+            </Col>
+          </Row>
 
-          <div className=" d-flex   gap-sm-4 ">
-            <Button
-              variant="primary"
-              type="submit"
-              className=" mb-4"
-              onClick={handleSubmit}
-            >
-              Submit
-            </Button>
-            <Button
-              variant="danger"
-              type="submit"
-              className="mb-4"
-              onClick={handleCancel}
-            >
-              Cancel
-            </Button>
-          </div>
+          <Row className="justify-content-center gap-3">
+            <Col xs={12} sm={5}>
+              <Button
+                variant="primary"
+                type="submit"
+                className="w-100"
+              >
+                Submit
+              </Button>
+            </Col>
+            <Col xs={12} sm={5}>
+              <Button
+                variant="danger"
+                type="button"
+                className="w-100"
+                onClick={handleCancel}
+              >
+                Cancel
+              </Button>
+            </Col>
+          </Row>
         </Form>
-      </div>
+      </Container>
     </>
   );
 };
