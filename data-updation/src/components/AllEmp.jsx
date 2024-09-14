@@ -18,7 +18,7 @@ const AllEmp = () => {
     error = null,
     searchData=""
   } = useSelector(state => state.empDetails);
-console.log("searchData",searchData)
+//console.log("searchData",searchData)
   const {
     updateddetails:updatedDetails=[],
   }= useSelector(state=>state.updatedData)
@@ -68,8 +68,6 @@ console.log("searchData",searchData)
    // console.log("Filtered Details:", filteredDetails);
 
    const handleButton=()=>{
-  
-    
     
     navigate("/addemp")
    }
