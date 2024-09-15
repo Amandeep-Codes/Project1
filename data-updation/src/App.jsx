@@ -28,11 +28,11 @@ function App() {
             path="/"
             element={<AllEmp/>}
           /> 
-          <Route
+          {/* <Route
             path="/emp-record"
             // element= {isLogIn? <ProtectedRoute element={<AllEmp />} /> :<ProtectedRoute element={<Homepage />}/>}
             element={<AllEmp/>}
-          />
+          /> */}
           <Route
             path="/addemp"
            // element={<ProtectedRoute element={<AddEmployee />} />}

@@ -52,7 +52,7 @@ const NavBar = () => {
                 navbarScroll
               >
                 {/* <Nav.Link  to="/addemp" as={Link}>Add Employee</Nav.Link> */}
-                <Nav.Link  to ="/emp-record" as={Link}>All Employees</Nav.Link>
+                <Nav.Link  to ="/" as={Link}>All Employees</Nav.Link>
 
 
               </Nav>
