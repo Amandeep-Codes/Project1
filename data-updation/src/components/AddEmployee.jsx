@@ -52,6 +52,7 @@ const AddEmployee = () => {
     if (handleValidation()) {
       dispatch(addEmployeeData(empdata));
       navigate("/emp-record");
+      window.location.reload();
     }
   
   };
