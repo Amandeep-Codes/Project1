@@ -24,10 +24,10 @@ function App() {
         <NavBar/>
          
         <Routes>
-          { <Route
+           <Route
             path="/"
             element={<AllEmp/>}
-          /> }
+          /> 
           <Route
             path="/emp-record"
             // element= {isLogIn? <ProtectedRoute element={<AllEmp />} /> :<ProtectedRoute element={<Homepage />}/>}

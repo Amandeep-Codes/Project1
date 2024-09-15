@@ -51,14 +51,14 @@ const AddEmployee = () => {
     e.preventDefault();
     if (handleValidation()) {
       dispatch(addEmployeeData(empdata));
-      navigate("/emp-record")
+      navigate("/")
       
     }
   
   };
 
   const handleCancel = () => {
-    navigate("/emp-record");
+    navigate("/");
   };
 
   return (

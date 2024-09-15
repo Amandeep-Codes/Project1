@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Provider } from "react-redux";
+import AddEmployee from "./components/addEmployee";
+import AllEmp from "./components/AllEmp";
+import NavBar from "./components/Navbar";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import store from "./store/Store";
+import UpdateEmpData from "./components/UpdateEmpData";
+import Homepage from "./components/Homepage";
 
+
+const ProtectedRoute = ({ element, ...rest }) => {
+  const isLoggedIn = window.localStorage.getItem("isLogIn");
+  return isLoggedIn ? element : <Navigate to="/" />;
+};
 function App() {
-  const [count, setCount] = useState(0)
+  const isLoggedIn =window.localStorage.getItem("isLogIn")
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    
+      <Provider store={store}>
+        
+       
+          <Router>
+          
+            
+            <Routes>
+            
+              <Route path="/" element={!isLoggedIn ?<Homepage/>:<Navigate to={ "/emp-record"} />}/>
+              <Route path="/emp-record" element={<AllEmp/>} />
+              
+              {/* <Route path="/allEmp" element={<AllEmp/>}/> */}
+              <Route path="/addemp" element={<AddEmployee />} />
+              
+              <Route path="/update-record" element={<UpdateEmpData/>}/>
+              
+            </Routes>
+          </Router>
+        
+      </Provider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
+
+
