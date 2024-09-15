@@ -6,7 +6,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { getEmployeeDetails, deleteEmpDetails } from "../store/EmpSlice";
 import { updateEmpData } from "../store/UpdateSlice";
 import UpdateEmpData from "./UpdateEmpData";
-import NavBar from "./Navbar";
+//import NavBar from "./Navbar";
 
 
 
@@ -78,7 +78,7 @@ const AllEmp = () => {
     
   return (
     <>
-       <NavBar />
+      
       {loading && <p style={{ fontSize: "50px", textAlign: "center" }}>Loading....</p>}
 
       {error && <p variant='danger'>ERROR: {error}</p>}
