@@ -60,6 +60,7 @@ const addSlice = createSlice({
         state.loading = false;
         state.error = null;
         state.users.push(action.payload);
+        window.location.reload();
       })
       .addCase(addEmployeeData.rejected, (state, action) => {
         state.loading = false;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useDispatch, useSelector } from "react-redux";
@@ -51,8 +51,8 @@ const AddEmployee = () => {
     e.preventDefault();
     if (handleValidation()) {
       dispatch(addEmployeeData(empdata));
-      navigate("/emp-record");
-      window.location.reload();
+      navigate("/emp-record")
+      
     }
   
   };
