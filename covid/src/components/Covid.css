@@ -107,3 +107,6 @@ body, html {
 
    
   }
+  img{
+    max-width:50px;
+  }

@@ -79,6 +79,9 @@ function Covid() {
             <li>
               <strong>Deaths per Million:</strong> {data.deathsPerOneMillion}
             </li>
+            <li>
+                <strong> Flag: </strong> <img src={data.countryInfo.flag} alt="flag" />
+            </li>
           </ul>
         </div>
       )}
